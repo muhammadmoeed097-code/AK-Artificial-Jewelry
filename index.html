@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK Artificial Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+        }
+        /* Header & Icons Bar */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        .search-icon, .right-icons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .logo-img {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        /* Navigation Links */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            padding: 18px 0;
+            border-bottom: 1px solid #222;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #ccc;
+            text-decoration: none;
+        }
+        .nav-link:hover { color: #d4af37; }
+        .nav-link.sale { color: #ff5252; }
+
+        /* Product Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-box {
+            background: #111;
+            border: 1px solid #222;
+            padding: 12px;
+            border-radius: 4px;
+            position: relative;
+            text-align: center;
+        }
+        .sale-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #d4af37;
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 8px;
+            text-transform: uppercase;
+        }
+        .product-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+        .product-title {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            margin-top: 12px;
+            color: #fff;
+        }
+        .price-container {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        .old-price { text-decoration: line-through; color: #888; margin-right: 8px; }
+        .new-price { color: #d4af37; font-weight: 600; }
+        .save-price { color: #ff5252; font-size: 11px; margin-left: 6px; }
+        
+        .btn-cart {
+            width: 100%;
+            background: #d4af37;
+            color: #000;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="search-icon">
+            <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <div>
+            <!-- Aapki file name ke mutabiq logo.png.png kar diya gaya hai -->
+            <img src="logo.png.png" alt="AK Artificial Jewelry" class="logo-img">
+        </div>
+        <div class="right-icons">
+            <!-- Compare Icon -->
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/" target="_blank" style="text-decoration:none;">
+                <svg width="22" height="22" fill="#ffffff" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </a>
+            <!-- Profile Icon -->
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <!-- Cart Icon -->
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <a href="#" class="nav-link">NEW ARRIVALS</a>
+        <a href="#" class="nav-link">STYLISH</a>
+        <a href="#" class="nav-link">FASHIONABLE</a>
+        <a href="#" class="nav-link">KIDS</a>
+        <a href="#" class="nav-link">TRENDING</a>
+        <a href="#" class="nav-link sale">SALE</a>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid">
+        <div class="product-box">
+            <span class="sale-badge">Sale</span>
+            <img class="product-img" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop">
+            <div class="product-title">MADHURI (SILVER PENDANT)</div>
+            <div class="price-container">
+                <span class="old-price">Rs.8,990.00 PKR</span>
+                <span class="new-price">Rs.8,091.00 PKR</span>
+                <span class="save-price">Save Rs.899.00 PKR</span>
+            </div>
+            <button class="btn-cart">ADD TO CART</button>
+        </div>
+
+        <div class="product-box">
+            <span class="sale-badge">Sale</span>
+            <img class="product-img" src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop">
+            <div class="product-title">NOOREY GOLD EARRINGS</div>
+            <div class="price-container">
+                <span class="old-price">Rs.6,990.00 PKR</span>
+                <span class="new-price">Rs.5,592.00 PKR</span>
+                <span class="save-price">Save Rs.1,398.00 PKR</span>
+            </div>
+            <button class="btn-cart">ADD TO CART</button>
+        </div>
+
+        <div class="product-box">
+            <span class="sale-badge">Sale</span>
+            <img class="product-img" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop">
+            <div class="product-title">ROYAL PEARL DROP EARRINGS</div>
+            <div class="price-container">
+                <span class="old-price">Rs.9,500.00 PKR</span>
+                <span class="new-price">Rs.7,200.00 PKR</span>
+                <span class="save-price">Save Rs.2,300.00 PKR</span>
+            </div>
+            <button class="btn-cart">ADD TO CART</button>
+        </div>
+
+        <div class="product-box">
+            <span class="sale-badge">Sale</span>
+            <img class="product-img" src="https://images.unsplash.com/photo-1611591475179-42cd34264d64?q=80&w=800&auto=format&fit=crop">
+            <div class="product-title">KUNDAN BRIDAL NECKLACE</div>
+            <div class="price-container">
+                <span class="old-price">Rs.18,000.00 PKR</span>
+                <span class="new-price">Rs.14,500.00 PKR</span>
+                <span class="save-price">Save Rs.3,500.00 PKR</span>
+            </div>
+            <button class="btn-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+</body>
+</html>
